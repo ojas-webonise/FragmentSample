@@ -1,0 +1,61 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="4dip" >
+
+    <FrameLayout
+        android:id="@+id/sample_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1" >
+    </FrameLayout>
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+    <Button
+        android:id="@+id/new_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:text="New " >
+
+        <requestFocus />
+    </Button>
+    
+    <Button
+        android:id="@+id/pop_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:text="Pop" >
+
+        <requestFocus />
+    </Button>
+    
+    <Button
+        android:id="@+id/pop_upto_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:text="Pop upto first" >
+
+        <requestFocus />
+    </Button>
+    
+    <Button
+        android:id="@+id/pop_all_fragments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:text="Pop all" >
+
+        <requestFocus />
+    </Button>
+    </LinearLayout>
+
+</LinearLayout>
