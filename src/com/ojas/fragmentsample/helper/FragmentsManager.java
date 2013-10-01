@@ -10,6 +10,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 
+import com.ojas.fragmentsample.R;
+
 public class FragmentsManager {
 	
 	private FragmentActivity mContext;
@@ -30,7 +32,8 @@ public class FragmentsManager {
 	
 	public void addFragment(Fragment mFragment) {
 		FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-		
+		fragmentTransaction.setCustomAnimations(R.drawable.slide_in_right, R.drawable.slide_out_left,
+				R.drawable.slide_in_left, R.drawable.slide_out_right);
 		String strFragmentName = mFragment.getClass().getName().toString();
 		
 		fragmentTransaction.addToBackStack(strFragmentName)
@@ -44,13 +47,16 @@ public class FragmentsManager {
 		iStackTop++;
 	}
 
-	public void popFragment() {
+	public boolean popFragment() {
 		if (!fragmentStack.isEmpty()) {
 			// Retrieve the last fragment name in stack
 			String lastFragment = fragmentStack.peek().getClass().getName();
 			fragmentsMap.remove(lastFragment);
 			fragmentStack.pop();
 			mFragmentManager.popBackStack();
+			return true;
+		} else {
+			return false;
 		}
 	}
 	

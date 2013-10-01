@@ -1,0 +1,36 @@
+# built application files
+*.apk
+*.ap_
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+
+#build config file
+src/checkinforgood/com/Config.java
+
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+*.*~
+
+# Eclipse project files
+.classpath
+.project
+.metadata
+.settings
+
+# OSX files
+.DS_Store
+
+# zxing files
+/build
+/build-test
+/core.jar

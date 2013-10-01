@@ -1,5 +1,6 @@
 package com.ojas.fragmentsample;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
@@ -9,12 +10,13 @@ import android.widget.Button;
 
 import com.ojas.fragmentsample.helper.FragmentsManager;
 
+@SuppressLint("SimpleDateFormat")
 public class FragmentDemo extends FragmentActivity implements OnClickListener {
 
 	public static FragmentsManager mFragmentsManager;
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.fragment_sample_layout);
@@ -27,9 +29,10 @@ public class FragmentDemo extends FragmentActivity implements OnClickListener {
 		
 		((Button)findViewById(R.id.pop_fragment)).setOnClickListener(this);
 		
-		((Button)findViewById(R.id.pop_upto_fragment)).setOnClickListener(this);
+		((Button)findViewById(R.id.pop_upto_fragment)).setOnClickListener(this); 
+		
 	}
-
+	
 	@Override
 	public void onClick(View v) {
 		int iViewId = v.getId();
@@ -59,7 +62,10 @@ public class FragmentDemo extends FragmentActivity implements OnClickListener {
 	
 	@Override
 	public void onBackPressed() {
-		mFragmentsManager.popFragment();
+		boolean isFragmentPopped = mFragmentsManager.popFragment();
+		if (!isFragmentPopped) {
+			finish();
+		}
 	}
 
 	@Override
